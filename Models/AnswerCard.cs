@@ -20,7 +20,6 @@ namespace CardGame.Models
         [Required]
         public int DeckId { get; set; }
 
-        [Required]
         public Deck Deck { get; set; }
     }
 }

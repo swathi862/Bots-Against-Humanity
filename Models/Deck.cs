@@ -16,5 +16,9 @@ namespace CardGame.Models
 
         [Required]
         public double Price { get; set; }
+
+        public List<AnswerCard> AnswerCards { get; set; }
+
+        public List<PurchasedDeck> PurchasedDeck { get; set; }
     }
 }

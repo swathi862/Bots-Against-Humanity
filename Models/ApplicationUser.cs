@@ -23,9 +23,12 @@ namespace CardGame.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Required]
+        public override string UserName { get; set; }
+
         public int Score { get; set; }
 
-        public virtual ICollection<Deck> Decks { get; set; }
+        public List<PurchasedDeck> PurchasedDecks { get; set; }
 
     }
 }
