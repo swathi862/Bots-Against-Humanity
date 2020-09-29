@@ -8,14 +8,20 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20200924145821_ModelSetup.cs" />
     <Compile Remove="Data\Migrations\20200924145821_ModelSetup.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200929134857_AddedSeedData.cs" />
+    <Compile Remove="Data\Migrations\20200929134857_AddedSeedData.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200929141255_AddSeedData.cs" />
+    <Compile Remove="Data\Migrations\20200929141255_AddSeedData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@ namespace CardGame.Models
         public string Name { get; set; }
 
         [Required]
-        public double Price { get; set; }
+        public int Price { get; set; }
 
         public List<AnswerCard> AnswerCards { get; set; }
 

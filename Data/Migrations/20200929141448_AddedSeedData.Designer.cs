@@ -4,18 +4,20 @@ using CardGame.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CardGame.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200929141448_AddedSeedData")]
+    partial class AddedSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -41,253 +43,6 @@ namespace CardGame.Data.Migrations
                     b.HasIndex("DeckId");
 
                     b.ToTable("AnswerCard");
-
-                    b.HasData(
-                        new
-                        {
-                            AnswerCardId = 1,
-                            DeckId = 1,
-                            Description = "Apple Pie",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 2,
-                            DeckId = 1,
-                            Description = "Nothing",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 3,
-                            DeckId = 1,
-                            Description = "Blueberries",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 4,
-                            DeckId = 1,
-                            Description = "Death by bees",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 5,
-                            DeckId = 1,
-                            Description = "Me time",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 6,
-                            DeckId = 1,
-                            Description = "Neil Patrick Harris",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 7,
-                            DeckId = 1,
-                            Description = "Power",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 8,
-                            DeckId = 1,
-                            Description = "Active Listening",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 9,
-                            DeckId = 1,
-                            Description = "College",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 10,
-                            DeckId = 1,
-                            Description = "Moral Ambiguity",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 11,
-                            DeckId = 1,
-                            Description = "Buddy, the goat, eating cans",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 12,
-                            DeckId = 1,
-                            Description = "Living in a trashcan",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 13,
-                            DeckId = 1,
-                            Description = "The miracle of childbirth",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 14,
-                            DeckId = 1,
-                            Description = "Frolicking",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 15,
-                            DeckId = 1,
-                            Description = "A private island caretaker",
-                            PointValue = 1
-                        },
-                        new
-                        {
-                            AnswerCardId = 16,
-                            DeckId = 2,
-                            Description = "Asking your boss for a raise",
-                            PointValue = 2
-                        },
-                        new
-                        {
-                            AnswerCardId = 17,
-                            DeckId = 2,
-                            Description = "Making the printer work",
-                            PointValue = 2
-                        },
-                        new
-                        {
-                            AnswerCardId = 18,
-                            DeckId = 2,
-                            Description = "Writing up to-do lists",
-                            PointValue = 2
-                        },
-                        new
-                        {
-                            AnswerCardId = 19,
-                            DeckId = 2,
-                            Description = "Finding out your co-worker stole your stapler",
-                            PointValue = 2
-                        },
-                        new
-                        {
-                            AnswerCardId = 20,
-                            DeckId = 2,
-                            Description = "Workplace meetings",
-                            PointValue = 2
-                        },
-                        new
-                        {
-                            AnswerCardId = 21,
-                            DeckId = 3,
-                            Description = "Maleficent",
-                            PointValue = 3
-                        },
-                        new
-                        {
-                            AnswerCardId = 22,
-                            DeckId = 3,
-                            Description = "Cruella de Vil",
-                            PointValue = 3
-                        },
-                        new
-                        {
-                            AnswerCardId = 23,
-                            DeckId = 3,
-                            Description = "Hades",
-                            PointValue = 3
-                        },
-                        new
-                        {
-                            AnswerCardId = 24,
-                            DeckId = 3,
-                            Description = "Dr.Facilier",
-                            PointValue = 3
-                        },
-                        new
-                        {
-                            AnswerCardId = 25,
-                            DeckId = 3,
-                            Description = "The Evil Queen",
-                            PointValue = 3
-                        },
-                        new
-                        {
-                            AnswerCardId = 26,
-                            DeckId = 4,
-                            Description = "An outbreak of smallpox",
-                            PointValue = 4
-                        },
-                        new
-                        {
-                            AnswerCardId = 27,
-                            DeckId = 4,
-                            Description = "Famine",
-                            PointValue = 4
-                        },
-                        new
-                        {
-                            AnswerCardId = 28,
-                            DeckId = 4,
-                            Description = "Dysentery",
-                            PointValue = 4
-                        },
-                        new
-                        {
-                            AnswerCardId = 29,
-                            DeckId = 4,
-                            Description = "The Bubonic Plague",
-                            PointValue = 4
-                        },
-                        new
-                        {
-                            AnswerCardId = 30,
-                            DeckId = 4,
-                            Description = "The 'Rona",
-                            PointValue = 4
-                        },
-                        new
-                        {
-                            AnswerCardId = 31,
-                            DeckId = 5,
-                            Description = "Ripping into a man's chest and pulling out his still-beating heart",
-                            PointValue = 5
-                        },
-                        new
-                        {
-                            AnswerCardId = 32,
-                            DeckId = 5,
-                            Description = "Entering a breakout room to find Beatrice patiently waiting for you",
-                            PointValue = 5
-                        },
-                        new
-                        {
-                            AnswerCardId = 33,
-                            DeckId = 5,
-                            Description = "Having a demon-possesed being crawl toward you down a flight of stairs",
-                            PointValue = 5
-                        },
-                        new
-                        {
-                            AnswerCardId = 34,
-                            DeckId = 5,
-                            Description = "Sacrificing your soul to a witch in exchange for their blood",
-                            PointValue = 5
-                        },
-                        new
-                        {
-                            AnswerCardId = 35,
-                            DeckId = 5,
-                            Description = "Performing a seance during the witching hour",
-                            PointValue = 5
-                        });
                 });
 
             modelBuilder.Entity("CardGame.Models.ApplicationUser", b =>
@@ -371,7 +126,7 @@ namespace CardGame.Data.Migrations
                         {
                             Id = "000000001",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9d387d3a-5d3e-46ab-8455-6c35b4de60d0",
+                            ConcurrencyStamp = "6dc31f34-7535-40b6-a725-6288e56a155c",
                             Email = "swathi@email.com",
                             EmailConfirmed = true,
                             FirstName = "Swathi",
@@ -379,10 +134,10 @@ namespace CardGame.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SWATHI@EMAIL.COM",
                             NormalizedUserName = "SWATHI86",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOJWtGOZFwAU+kNHmONZRZqWeQ0fiS5LjSwZEboSILCIoNo7NkqDtLzewzMIFglIJA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECh5+i57I8CEP3n8DdeTqRq+s5nQpO6xRH2HKQGkGSKSxP614PXi/DqIfGSKh9NYAw==",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "124e28e2-de23-489c-b431-28e100b64ec8",
+                            SecurityStamp = "4e4e4005-ffe8-4f4a-91e0-91683d32a93d",
                             TwoFactorEnabled = false,
                             UserName = "Swathi86"
                         });

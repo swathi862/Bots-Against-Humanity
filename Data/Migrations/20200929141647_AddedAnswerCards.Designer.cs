@@ -4,18 +4,20 @@ using CardGame.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CardGame.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200929141647_AddedAnswerCards")]
+    partial class AddedAnswerCards
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -371,7 +373,7 @@ namespace CardGame.Data.Migrations
                         {
                             Id = "000000001",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9d387d3a-5d3e-46ab-8455-6c35b4de60d0",
+                            ConcurrencyStamp = "27749f8e-16d2-4303-a0cb-8bfd477b4ea9",
                             Email = "swathi@email.com",
                             EmailConfirmed = true,
                             FirstName = "Swathi",
@@ -379,10 +381,10 @@ namespace CardGame.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SWATHI@EMAIL.COM",
                             NormalizedUserName = "SWATHI86",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOJWtGOZFwAU+kNHmONZRZqWeQ0fiS5LjSwZEboSILCIoNo7NkqDtLzewzMIFglIJA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF6Bou5RynwMLywIH+yXjQJBupbyhsLpPoXuYozeQ1Mhn4L7gMsORKYXGU7Qriv7eA==",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "124e28e2-de23-489c-b431-28e100b64ec8",
+                            SecurityStamp = "fbb95ff2-99ab-43f4-9f81-4d2d8ac4bfbd",
                             TwoFactorEnabled = false,
                             UserName = "Swathi86"
                         });
