@@ -7,9 +7,7 @@ namespace CardGame.Models.ViewModels
 {
     public class PlayingRoundCards
     {
-        public AnswerCard playerOneCard { get; set; }
-        public AnswerCard playerTwoCard { get; set; }
-        public AnswerCard playerThreeCard { get; set; }
+        public List<AnswerCard> roundAnswerCards = new List<AnswerCard>();
 
         public QuestionCard roundQuestionCard { get; set; }
     }

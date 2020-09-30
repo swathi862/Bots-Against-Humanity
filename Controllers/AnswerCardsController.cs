@@ -12,6 +12,7 @@ using CardGame.Models.ViewModels;
 
 namespace CardGame.Controllers
 {
+
     public class AnswerCardsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -169,12 +170,6 @@ namespace CardGame.Controllers
             return View();
         }
 
-        //private List for questions
-        private List<QuestionCard> playingQuestionCards = new List<QuestionCard>();
-
-        //private List for answers
-        private List<AnswerCard> playingAnswerCards = new List<AnswerCard>();
-
         public async Task<IActionResult> PlayGame()
         {
             var user = await GetCurrentUserAsync();
@@ -184,29 +179,48 @@ namespace CardGame.Controllers
             //make deck 1 the default deck
             //};
 
+            if (GameData.roundCounter == 0)
+            {
+                var allAnswerCards = _context.AnswerCard.Where(d => d.DeckId == 1).OrderBy(r => Guid.NewGuid()).ToListAsync();
 
-            //Access(query) deck 1, include answer cards
-            var allAnswerCards = _context.AnswerCard.Where(d => d.DeckId == 1).OrderBy(r => Guid.NewGuid()).ToListAsync();
+                GameData.playingAnswerCards = await allAnswerCards;
 
-            //Pull out 15 *random* answer cards (get all cards from deck)- reassign to private list
-            playingAnswerCards = await allAnswerCards;
+                var getQuestionCards = _context.QuestionCard.OrderBy(r => Guid.NewGuid()).Take(5).ToListAsync();
 
-            //Access question cards
-            var getQuestionCards = _context.QuestionCard.OrderBy(r => Guid.NewGuid()).Take(5).ToListAsync();
-
-            //Pull out 5 random question cards (have to do the random here)- reassign to private list
-            playingQuestionCards = await getQuestionCards;
-
-            //Pull out 3 Answer cards (Remove the cards from list after they're pulled- LINQ method)
+                GameData.playingQuestionCards = await getQuestionCards;
+            }
 
             PlayingRoundCards round = new PlayingRoundCards();
-            round.playerOneCard = playingAnswerCards[0];
-            round.playerTwoCard = playingAnswerCards[1];
-            round.playerThreeCard = playingAnswerCards[2];
-            round.roundQuestionCard = playingQuestionCards[0];
 
+            if (GameData.roundCounter < 5)
+            {
+                round.roundAnswerCards = GameData.playingAnswerCards.Take(3).ToList();
+                GameData.playingAnswerCards.RemoveRange(0, 3);
+                round.roundQuestionCard = GameData.playingQuestionCards[0];
+                GameData.playingQuestionCards.Remove(round.roundQuestionCard);
+
+                //return View(round);
+            }
+
+            else
+            {
+                user.Score = GameData.gameTotal;
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+
+                //return End Of Game Modal
+            }
 
             return View(round);
+        }
+
+        public async Task<IActionResult> PlayNextRound(int cardPointvalue)
+        {
+            GameData.gameTotal += cardPointvalue;
+
+            GameData.roundCounter ++;
+
+            return RedirectToAction("PlayGame");
         }
     }
 }
