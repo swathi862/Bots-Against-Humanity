@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CardGame.Data;
 using CardGame.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace CardGame.Controllers
 {
@@ -14,15 +15,32 @@ namespace CardGame.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public DecksController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+        public DecksController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Decks
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Deck.ToListAsync());
+            //filter out purchase deck AND deck 1
+            var applicationDbContent = _context.Deck.Include(d => d.DeckId).Include(d => d.PurchasedDeck).ThenInclude(d => d.User);
+
+            var unboughtDecks = applicationDbContent.Where(d => d.DeckId != 1);
+           
+                foreach(var item in unboughtDecks)
+            {
+
+                item.PurchasedDeck.
+            }
+            //&& d.DeckId != d.PurchasedDeck.DeckId
+
+            return View(await applicationDbContent.ToListAsync());
         }
 
         // GET: Decks/Details/5
@@ -148,6 +166,37 @@ namespace CardGame.Controllers
         private bool DeckExists(int id)
         {
             return _context.Deck.Any(e => e.DeckId == id);
+        }
+
+        public async Task<IActionResult> PurchaseDeck(int deckValue, int deckId)
+        {
+            var user = await GetCurrentUserAsync();
+
+            if (deckValue <= user.Score)
+            {
+                user.Score = user.Score - deckValue;
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                ViewData["message"] = "You don't have enough points to purchase this deck. Go collect more points.";
+            }
+
+            PurchasedDeck purchasedDeck = new PurchasedDeck
+            {
+                UserId = Int32.Parse(user.Id),
+                DeckId = deckId
+            };
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(purchasedDeck);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

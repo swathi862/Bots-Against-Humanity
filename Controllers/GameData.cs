@@ -14,9 +14,5 @@ namespace CardGame
         public static int gameTotal { get; set; }
         public static int roundCounter { get; set; }
 
-        //public int Total()
-        //{
-        //    return gameTotal;
-        //}
     }
 }

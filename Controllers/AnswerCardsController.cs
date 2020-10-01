@@ -167,6 +167,8 @@ namespace CardGame.Controllers
 
         public IActionResult LoadGame()
         {
+            GameData.roundCounter = 0;
+            GameData.gameTotal = 0;
             return View();
         }
 
@@ -199,19 +201,19 @@ namespace CardGame.Controllers
                 round.roundQuestionCard = GameData.playingQuestionCards[0];
                 GameData.playingQuestionCards.Remove(round.roundQuestionCard);
 
-                //return View(round);
+                return View(round);
             }
 
             else
             {
-                user.Score = GameData.gameTotal;
+                user.Score += GameData.gameTotal;
                 _context.Update(user);
                 await _context.SaveChangesAsync();
 
-                //return End Of Game Modal
+                return RedirectToAction("EndOfGame");
             }
 
-            return View(round);
+            
         }
 
         public async Task<IActionResult> PlayNextRound(int cardPointvalue)
@@ -221,6 +223,12 @@ namespace CardGame.Controllers
             GameData.roundCounter ++;
 
             return RedirectToAction("PlayGame");
+        }
+
+        public IActionResult EndOfGame()
+        {
+            ViewData["gameTotal"] = GameData.gameTotal;
+            return View();
         }
     }
 }
