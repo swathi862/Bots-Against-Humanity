@@ -176,16 +176,25 @@ namespace CardGame.Controllers
         {
             var user = await GetCurrentUserAsync();
 
-            //if (user.PurchasedDecks.Count == 0)
-            //{
-            //make deck 1 the default deck
-            //};
-
             if (GameData.roundCounter == 0)
             {
-                var allAnswerCards = _context.AnswerCard.Where(d => d.DeckId == 1).OrderBy(r => Guid.NewGuid()).ToListAsync();
 
-                GameData.playingAnswerCards = await allAnswerCards;
+                var userPurchaseDecks = _context.PurchasedDeck.Include(pd => pd.Deck).ThenInclude(d => d.AnswerCards).Where(pd => pd.UserId == user.Id);
+
+                var stockCards = await _context.AnswerCard.Where(s => s.DeckId == 1).ToListAsync();
+
+
+                var purchasedAnswerCards = userPurchaseDecks.Select(x => x.Deck).SelectMany(d => d.AnswerCards).ToList();
+                    
+                foreach(var card in stockCards)
+                {
+                    purchasedAnswerCards.Add(card);
+                }
+                    
+                var allAnswerCards = purchasedAnswerCards.OrderBy(r => Guid.NewGuid()).Take(15).ToList();
+
+                GameData.playingAnswerCards = allAnswerCards;
+
 
                 var getQuestionCards = _context.QuestionCard.OrderBy(r => Guid.NewGuid()).Take(5).ToListAsync();
 

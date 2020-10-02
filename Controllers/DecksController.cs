@@ -28,19 +28,24 @@ namespace CardGame.Controllers
         // GET: Decks
         public async Task<IActionResult> Index()
         {
-            //filter out purchase deck AND deck 1
-            var applicationDbContent = _context.Deck.Include(d => d.DeckId).Include(d => d.PurchasedDeck).ThenInclude(d => d.User);
+            var user = await GetCurrentUserAsync();
 
-            var unboughtDecks = applicationDbContent.Where(d => d.DeckId != 1);
-           
-                foreach(var item in unboughtDecks)
+            List<Deck> allDecks = await _context.Deck.Include(d => d.PurchasedDeck).ThenInclude(pd => pd.User).ToListAsync();
+
+            List<Deck> filteredDecks = allDecks.Where(d => d.DeckId != 1).ToList();
+
+            List<Deck> unboughtDecks = filteredDecks;
+
+            foreach (Deck item in filteredDecks)
             {
-
-                item.PurchasedDeck.
+                if (item.PurchasedDeck.Any(c => c.UserId == user.Id))
+                {
+                    unboughtDecks = filteredDecks.Where(d => d.DeckId != item.DeckId).ToList();
+                }
+                    
             }
-            //&& d.DeckId != d.PurchasedDeck.DeckId
 
-            return View(await applicationDbContent.ToListAsync());
+            return View(unboughtDecks);
         }
 
         // GET: Decks/Details/5
@@ -185,7 +190,7 @@ namespace CardGame.Controllers
 
             PurchasedDeck purchasedDeck = new PurchasedDeck
             {
-                UserId = Int32.Parse(user.Id),
+                UserId = user.Id,
                 DeckId = deckId
             };
 

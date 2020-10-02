@@ -15,7 +15,7 @@ namespace CardGame.Models
         public int DeckId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
 

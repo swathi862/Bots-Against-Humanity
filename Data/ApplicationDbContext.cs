@@ -452,16 +452,6 @@ namespace CardGame.Data
                 }
             );
 
-            //modelBuilder.Entity<AnswerCard>().HasData(
-            //    new PurchasedDeck()
-            //    {
-            //        PurchasedDeckId = 1,
-            //        DeckId = 1,
-            //        UserId = 1
-            //    }
-            //);
-
-
         }
     }
 }

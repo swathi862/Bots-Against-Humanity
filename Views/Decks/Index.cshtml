@@ -5,52 +5,53 @@
 }
 
 <h1>Store</h1>
-<hr/>
-
+<br/>
+<h3>Available Decks</h3>
+<hr />
 <div class="container align-items-center justify-content-center">
     <div class="row justify-content-around">
         @foreach (Deck deck in Model)
         {
-        <div style="margin-bottom: 1em;">
-            <h2 class="card text-center flex-wrap" style="width: 18rem; height: 20rem; padding: 1em;">@deck.Name</h2>
-            <h4 class="text-center flex-wrap">@deck.Price points</h4>
-            <div class="container">
-                <div class="col-md-12 text-center align-items-center">
-                    <a class="btn btn-primary align-items-center" asp-controller="Decks" asp-action="PurchaseDeck" asp-route-deckId="@deck.DeckId" asp-route-deckValue="@deck.Price">Purchase!</a>
+            <div style="margin-bottom: 1em;">
+                <h2 class="card text-center flex-wrap" style="width: 18rem; height: 20rem; padding: 1em;">@deck.Name</h2>
+                <h4 class="text-center flex-wrap">@deck.Price points</h4>
+                <div class="container">
+                    <div class="col-md-12 text-center align-items-center">
+                        <a class="btn btn-primary align-items-center" asp-controller="Decks" asp-action="PurchaseDeck" asp-route-deckId="@deck.DeckId" asp-route-deckValue="@deck.Price">Purchase!</a>
+                    </div>
                 </div>
             </div>
-        </div>
         }
     </div>
 </div>
 
 @*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DeckId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DeckId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DeckId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DeckId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DeckId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DeckId">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

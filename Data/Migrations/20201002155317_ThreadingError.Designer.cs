@@ -4,14 +4,16 @@ using CardGame.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CardGame.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201002155317_ThreadingError")]
+    partial class ThreadingError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -371,7 +373,7 @@ namespace CardGame.Data.Migrations
                         {
                             Id = "000000001",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c088745a-6f0e-42b8-b4dc-629f2ec17f89",
+                            ConcurrencyStamp = "8bf2acd5-b969-41f3-b089-10e44afc209b",
                             Email = "swathi@email.com",
                             EmailConfirmed = true,
                             FirstName = "Swathi",
@@ -379,10 +381,10 @@ namespace CardGame.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SWATHI@EMAIL.COM",
                             NormalizedUserName = "SWATHI86",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL6tLd1sbJH/QeZ+ktcvIfnixoNXwXoBm0phr7ENQblj4nlP3B8gluX6SiRJ6hIPcg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBtRd7xn/oG26/pmEoKhAu1IDDsSalc+OKbc0OwVIDBbYg2K96Metyf5DgBzbuFh5Q==",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "1241b7a6-8421-442b-bbe2-9f1c373adf2b",
+                            SecurityStamp = "13e4780b-d9af-40f1-9d11-8c5ae7fb2970",
                             TwoFactorEnabled = false,
                             UserName = "Swathi86"
                         });
@@ -449,15 +451,17 @@ namespace CardGame.Data.Migrations
                     b.Property<int>("DeckId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("PurchasedDeckId");
 
                     b.HasIndex("DeckId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("PurchasedDeck");
                 });
@@ -759,9 +763,7 @@ namespace CardGame.Data.Migrations
 
                     b.HasOne("CardGame.Models.ApplicationUser", "User")
                         .WithMany("PurchasedDecks")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
