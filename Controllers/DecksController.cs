@@ -32,20 +32,11 @@ namespace CardGame.Controllers
 
             List<Deck> allDecks = await _context.Deck.Include(d => d.PurchasedDeck).ThenInclude(pd => pd.User).ToListAsync();
 
-            List<Deck> filteredDecks = allDecks.Where(d => d.DeckId != 1).ToList();
+            List<Deck> filteredDecks = allDecks.Where(d => d.DeckId != 1 && !d.PurchasedDeck.Any(c => c.UserId == user.Id)).ToList();
 
-            List<Deck> unboughtDecks = filteredDecks;
+            ViewBag.totalScore = user.Score;
 
-            foreach (Deck item in filteredDecks)
-            {
-                if (item.PurchasedDeck.Any(c => c.UserId == user.Id))
-                {
-                    unboughtDecks = filteredDecks.Where(d => d.DeckId != item.DeckId).ToList();
-                }
-                    
-            }
-
-            return View(unboughtDecks);
+            return View(filteredDecks);
         }
 
         // GET: Decks/Details/5

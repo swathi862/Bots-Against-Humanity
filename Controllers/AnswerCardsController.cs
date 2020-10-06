@@ -219,7 +219,10 @@ namespace CardGame.Controllers
                 _context.Update(user);
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction("EndOfGame");
+                ViewBag.counter = GameData.roundCounter;
+
+                //return RedirectToAction("EndOfGame"); 
+                return View()
             }
 
             
