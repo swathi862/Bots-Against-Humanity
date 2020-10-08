@@ -2,28 +2,12 @@
 @{
     ViewData["Title"] = "EndOfGame";
 }
-
-    @*<div class="container">
-        <div class="text-center">
-            <h1>Congratulations!</h1>
-            <h4>You have won @ViewData["gameTotal"] points!</h4><br/>
-            <div class="col-md-12 text-center align-items-center">
-                <a class="btn btn-outline-primary" asp-controller="AnswerCards" asp-action="LoadGame">Play Again</a>
-                <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Home</a>
-                <a class="btn btn-outline-success" asp-controller="Decks" asp-action="Index">Visit Store</a>
-            </div>
-        </div>
-    </div>*@
-<button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria- labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body text-center">
+    <div class="container">
+        <div style="background:url(https://i.pinimg.com/originals/e5/83/3e/e5833e1bea7d379f0f4e4ae250b7cf81.gif); height: 70vh;">
+            <img src="https://i.pinimg.com/originals/e5/83/3e/e5833e1bea7d379f0f4e4ae250b7cf81.gif" alt="confetti" style="height: 10em; opacity: 0.1;">
+            <div class="text-center">
                 <h1>Congratulations!</h1>
                 <h4>You have won @ViewData["gameTotal"] points!</h4><br />
-            </div>
-            <div class="modal-footer">
                 <div class="col-md-12 text-center align-items-center">
                     <a class="btn btn-outline-primary" asp-controller="AnswerCards" asp-action="LoadGame">Play Again</a>
                     <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Home</a>
@@ -32,4 +16,23 @@
             </div>
         </div>
     </div>
-</div>
+
+@*<button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria- labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h1>Congratulations!</h1>
+                    <h4>You have won @ViewData["gameTotal"] points!</h4><br />
+                </div>
+                <div class="modal-footer">
+                    <div class="col-md-12 text-center align-items-center">
+                        <a class="btn btn-outline-primary" asp-controller="AnswerCards" asp-action="LoadGame">Play Again</a>
+                        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="btn btn-outline-success" asp-controller="Decks" asp-action="Index">Visit Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@

@@ -173,23 +173,23 @@ namespace CardGame.Controllers
                 user.Score = user.Score - deckValue;
                 _context.Update(user);
                 await _context.SaveChangesAsync();
+
+                PurchasedDeck purchasedDeck = new PurchasedDeck
+                {
+                    UserId = user.Id,
+                    DeckId = deckId
+                };
+
+                if (ModelState.IsValid)
+                {
+                    _context.Add(purchasedDeck);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
             else
             {
-                ViewData["message"] = "You don't have enough points to purchase this deck. Go collect more points.";
-            }
-
-            PurchasedDeck purchasedDeck = new PurchasedDeck
-            {
-                UserId = user.Id,
-                DeckId = deckId
-            };
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(purchasedDeck);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag["message"] = "You don't have enough points to purchase this deck. Go collect more points.";
             }
 
             return RedirectToAction("Index");

@@ -219,13 +219,8 @@ namespace CardGame.Controllers
                 _context.Update(user);
                 await _context.SaveChangesAsync();
 
-                ViewBag.counter = GameData.roundCounter;
-
-                //return RedirectToAction("EndOfGame"); 
-                return View()
+                return RedirectToAction("EndOfGame");
             }
-
-            
         }
 
         public async Task<IActionResult> PlayNextRound(int cardPointvalue)
