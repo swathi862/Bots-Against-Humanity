@@ -192,6 +192,8 @@ namespace CardGame.Controllers
                 ViewBag["message"] = "You don't have enough points to purchase this deck. Go collect more points.";
             }
 
+            ViewBag["totalScore"] = user.Score;
+
             return RedirectToAction("Index");
         }
     }

@@ -5,7 +5,6 @@
 }
 
 <h1>Store</h1>
-<br/>
 <h3>Available Decks</h3>
 <hr />
 <div class="container align-items-center justify-content-center">
@@ -13,12 +12,14 @@
         @foreach (Deck deck in Model)
         {
             <div style="margin-bottom: 1em;">
-                <h2 class="card text-center flex-wrap" style="width: 16rem; height: 18rem; padding: 1em;">@deck.Name</h2>
+                <h2 class="card text-center flex-wrap text-dark" style="width: 16rem; height: 18rem; padding: 1em;">@deck.Name</h2>
                 <h4 class="text-center flex-wrap">@deck.Price points</h4>
                 <div class="container">
+                    @if (@ViewBag.totalScore >= @deck.Price)
+                    {
                     <div class="col-md-12 text-center align-items-center">
                         <a class="btn btn-primary align-items-center" asp-controller="Decks" asp-action="PurchaseDeck" asp-route-deckId="@deck.DeckId" asp-route-deckValue="@deck.Price">Purchase!</a>
-
+                        <p class="text-white font-italic">@ViewBag.message</p>
                         @*<div class="modal fade" id="PurchaseModal" tabindex="-1" role="dialog" aria- labelledby="PurchaseModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -46,6 +47,7 @@
                             </div>
                         </div>*@
                     </div>
+                    }
                 </div>
             </div>
         }

@@ -9,19 +9,18 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="container text-center">
-        <h1 class="display-4">Welcome, @User.Identity.Name!</h1>
-        <br />
-        <br />
-        <br />
+        <h2 class="display-4"><img src="https://i.gifer.com/3q63.gif" alt="robot" style="width:10%;" /> Welcome, @User.Identity.Name!</h2>
+        <h6>Earn points by playing a game and voting for answer cards. Use these points to buy more card decks!</h6>
+        <h6>Vist the Store to purchase some fun card decks to diversify your answer card collection with more humor!</h6>
         <br />
         <div class="justify-content-around" style="display: flex;">
-            <a class="btn btn-primary align-items-center" asp-controller="AnswerCards" asp-action="LoadGame" style="width: 14em; height: 12em;">
+            <a class="btn btn-dark align-items-center" asp-controller="AnswerCards" asp-action="LoadGame" style="width: 14em; height: 12em;">
                 <div>
                     <h3>Collect Points!</h3>
-                    <img src="https://i.imgur.com/mKpKosO.gif" alt="coins" style="width: 65%;"/>
+                    <img src="https://i.imgur.com/mKpKosO.gif" alt="coins" style="width: 65%;" />
                 </div>
             </a>
-            <a class="btn btn-secondary align-items-center" asp-controller="Decks" asp-action="Index" style="width: 14em; height: 12em;">
+            <a class="btn btn-dark align-items-center" asp-controller="Decks" asp-action="Index" style="width: 14em; height: 12em;">
                 <div>
                     <h3>Visit the Store!</h3>
                     <img src="https://media1.tenor.com/images/455d82b6ba7423c156be9cf42ba7dfd9/tenor.gif?itemid=16826559" alt="store" style="width: 68%; border-radius: 1em;" />
@@ -32,8 +31,9 @@
 }
 else
 {
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
+<div class="text-center">
+    <h1 class="display-4">Welcome to Bots Against Humanity!</h1>
+        <p>If you're a new user, please register an account to begin. <br/>If you're a returning user, what are you waiting for?! Log in and get to playing!</p>
+        <img src="https://i.gifer.com/Dqou.gif" alt="dancing robot" style="width: 45%"/>
+</div>
 }
