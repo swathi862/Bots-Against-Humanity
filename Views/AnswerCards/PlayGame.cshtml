@@ -15,10 +15,10 @@
         {
             <div>
                 <h2 class="text-center" style="color: cornsilk;">Player @i</h2>
-                <h3 class="card text-center flex-wrap slide-up wc" style="width: 18rem; height: 15rem; padding: 1em;">@card.Description</h3>
+                <h3 class="card text-center flex-wrap slide-in-fwd-bottom wc" style="width: 18rem; height: 15rem; padding: 1em;">@card.Description</h3>
                 <div class="container">
                     <div class="col-md-12 text-center align-items-center">
-                        <a class="btn btn-primary align-items-center slide-up" asp-controller="AnswerCards" asp-action="PlayNextRound" asp-route-cardPointValue="@card.PointValue">Vote!</a>
+                        <a class="btn btn-primary align-items-center slide-in-fwd-bottom" asp-controller="AnswerCards" asp-action="PlayNextRound" asp-route-cardPointValue="@card.PointValue">Vote!</a>
                     </div>
                 </div>
             </div>

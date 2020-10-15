@@ -9,8 +9,9 @@
                 <li class="nav-item">@await Component.InvokeAsync("ScoreCount")</li>
                 <li class="nav-item"><img style="width: 20%; height: auto;" src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="coin" /></li>
                 <div class="dropdown">
-                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img style="width: 20%; height: auto;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRMApjZlivZ2eTJ91_6T3wMJbzzCN6tnWOBPg&usqp=CAU" alt="Profile!">
+                    <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @*<img style="width: 20%; height: auto;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRMApjZlivZ2eTJ91_6T3wMJbzzCN6tnWOBPg&usqp=CAU" alt="Profile!">*@
+                        Hello, @User.Identity.Name!
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Settings</a>
