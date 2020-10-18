@@ -10,17 +10,16 @@
 {
     <div class="container text-center">
         <h2 class="display-4"><img src="https://i.gifer.com/3q63.gif" alt="robot" style="width:10%;" /> Welcome, @User.Identity.Name!</h2>
-        <h6>Earn points by playing a game and voting for answer cards. Use these points to buy more card decks!</h6>
-        <h6>Vist the Store to purchase some fun card decks to diversify your answer card collection with more humor!</h6>
+        <br />
         <br />
         <div class="justify-content-around" style="display: flex;">
-            <a class="btn btn-dark align-items-center" asp-controller="AnswerCards" asp-action="LoadGame" style="width: 14em; height: 12em;">
+            <a class="btn btn-dark align-items-center" data-toggle="tooltip" data-placement="left" title="Earn points by playing a game and voting for answer cards. Use these points to buy more card decks!" asp-controller="AnswerCards" asp-action="LoadGame" style="width: 14em; height: 12em;">
                 <div>
                     <h3>Collect Points!</h3>
                     <img src="https://i.imgur.com/mKpKosO.gif" alt="coins" style="width: 65%;" />
                 </div>
             </a>
-            <a class="btn btn-dark align-items-center" asp-controller="Decks" asp-action="Index" style="width: 14em; height: 12em;">
+            <a class="btn btn-dark align-items-center" data-toggle="tooltip" data-placement="right" title="Vist the Store to purchase some fun card decks to diversify your answer card collection with more humor!" asp-controller="Decks" asp-action="Index" style="width: 14em; height: 12em;">
                 <div>
                     <h3>Visit the Store!</h3>
                     <img src="https://media1.tenor.com/images/455d82b6ba7423c156be9cf42ba7dfd9/tenor.gif?itemid=16826559" alt="store" style="width: 68%; border-radius: 1em;" />

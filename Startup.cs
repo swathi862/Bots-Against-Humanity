@@ -62,6 +62,10 @@ namespace CardGame
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "BotsAgainstHumanity",
+                    pattern: "BotsAgainstHumanity",
+                    defaults: new { controller = "AnswerCards", action = "PlayNextRound" });
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
