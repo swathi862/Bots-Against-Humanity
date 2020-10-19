@@ -17,7 +17,6 @@ I created this app using C#/.NET and Entity Framework and styled the app using B
 
 4. To start the application, select the green play button towards the top of the window labeled "II Express" or press CTRL + F5. This should open up the application in a new window or tab in Chrome.
 
-: <h4>Happy Playing!</h4> :
 
 ## Login/Register
 
@@ -45,7 +44,7 @@ In order to start playing the game, you have to click on the _**'Collect Points'
 + Users will be able to collect points after completing games and with enough points, they will be able to visit the store to purchase a new card deck with their points.
 
 #### Visit the Store
-_**Visit the Store**_ to purchase more card decks!
+_**'Visit the Store'**_ to purchase more card decks!
 + By purchasing more decks, a user will be able to add more diverse cards to their answer card collection that the automated players will be choosing from. 
 + Also, the more points a deck costs to purchase, the higher the point value of the 5 cards in the deck.
 
