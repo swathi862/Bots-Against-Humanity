@@ -1,4 +1,4 @@
-# <p align="center"> <img src="https://github.com/swathi862/Bots-Against-Humanity/blob/master/Screenshots/black-text-logo.png" alt="BotsAgainstHumanity logo"> </p>
+# <p align="center"> <img src="https://github.com/swathi862/Bots-Against-Humanity/blob/master/Screenshots/bigger-black-text-logo.png" alt="BotsAgainstHumanity logo"> </p>
 
 Bots Against Humanity is a card game application that closely resembles the game 'Cards Against Humanity', except that instead of human players, this app uses three automated players or little robots to submit answer cards in response to a randomly generated question card.
 
