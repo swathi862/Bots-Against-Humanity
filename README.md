@@ -17,7 +17,7 @@ I created this app using C#/.NET and Entity Framework and styled the app using B
 
 4. To start the application, select the green play button towards the top of the window labeled "II Express" or press CTRL + F5. This should open up the application in a new window or tab in Chrome.
 
-Happy Playing!
+: <h4>Happy Playing!</h4> :
 
 ## Login/Register
 
@@ -40,12 +40,12 @@ As a card game application, the navigation for this app is kept simplistic.
 + Also, in the navigation bar, there is a "Total Score: " component that refers to the user's overall score or the number of points that they have earned so far and a dropdown menu from "Hello, [username]" that contains links to helpful resources, especially the "Help" page, which included detailed instructions and answers to questions users might have.
 
 #### Collect Points
-In order to start playing the game, you have to click on the 'Collect Points' button on the home page.
+In order to start playing the game, you have to click on the _**'Collect Points'**_ button on the home page.
 + After creating an account, a new user will be provided with a starter deck of cards with each card being worth 1 point each.
 + Users will be able to collect points after completing games and with enough points, they will be able to visit the store to purchase a new card deck with their points.
 
 #### Visit the Store
-Visit the Store to purchase more card decks!
+_**Visit the Store**_ to purchase more card decks!
 + By purchasing more decks, a user will be able to add more diverse cards to their answer card collection that the automated players will be choosing from. 
 + Also, the more points a deck costs to purchase, the higher the point value of the 5 cards in the deck.
 
