@@ -4,6 +4,8 @@ Bots Against Humanity is a card game application that closely resembles the game
 
 I designed this game to be a fun way to entertain yourself while maintaining the unique brand of humor when you can't visit your friends and have a game night together.
 
+I created this app using C#/.NET and Entity Framework and styled the app using Bootstrap and custom CSS.
+
 
 ## How to Start the App
 
@@ -22,12 +24,11 @@ When the user starts the app, the first page they will see is the login/register
 
 ## Home
 
-![alt text](https://github.com/swathi862/Bots-Against-Humanity/blob/master/Screenshots/HomePage.png "Home page")
+![alt text](https://github.com/swathi862/Bots-Against-Humanity/blob/master/Screenshots/HomePage.PNG "Home page")
 
 As a card game application, the navigation for this app is kept simplistic. After logging in, the user will be directed to the home page where they will be presented with the options **Collect Points!**- to go play a game- and **Visit the Store!**- to go to a store view to purchase a card deck.
 The home page can be accessed at any point by selecting the "Bots Against Humanity" logo on the top left side of the page in the navigation bar. 
-Also, in the navigation bar, there is a "Total Score: " component that refers to the user's overall score or the number of points that they have earned so far and a dropdown menu from "Hello, ----" 
-
+Also, in the navigation bar, there is a "Total Score: " component that refers to the user's overall score or the number of points that they have earned so far and a dropdown menu from "Hello, [username]" that contains links to helpful resources, especially the "Help" page, which included detailed instructions and answers to questions users might have.
 
 #### Collect Points
 In order to start playing the game, you have to click on the 'Collect Points' button on the home page.
@@ -48,7 +49,7 @@ In this application, some cards have different point values depending on what de
 
 ![alt text](https://github.com/swathi862/Bots-Against-Humanity/blob/master/Screenshots/EndGame.png "End Game page")
 
-At the end of the game, the user will receive a notification letting them know of how many points they've earned and the game total will be added to their overall score.
+At the end of the game, the user will receive a notification letting them know of how many points they've earned and the game total will be added to their overall score, which can be seen in the navigation bar.
 
 ## How to Purchase Decks
 
@@ -59,3 +60,4 @@ After purchasing a deck, the deck will disappear from the store view because bei
 
 
 # Other Notes
+![Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
